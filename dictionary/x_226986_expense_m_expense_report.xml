@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Expense Report" max_length="40" name="x_226986_expense_m_expense_report" type="collection">
+        <element label="End" mandatory="true" max_length="40" name="end" type="glide_date"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element label="Short Description" mandatory="true" max_length="40" name="short_description" type="string"/>
+        <element label="Start" mandatory="true" max_length="40" name="start" type="glide_date"/>
+        <element choice="1" default="Pending" label="State" mandatory="true" max_length="40" name="state" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Pending" sequence="0" value="Pending"/>
+                <element inactive_on_update="false" label="Submitted" sequence="1" value="Submitted"/>
+                <element inactive_on_update="false" label="Approved" sequence="2" value="Approved"/>
+                <element inactive_on_update="false" label="Rejected" sequence="3" value="Rejected"/>
+                <element inactive_on_update="false" label="Completed" sequence="4" value="Completed"/>
+            </choice>
+        </element>
+        <element label="Submitter" mandatory="true" max_length="32" name="submitter" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="submitter"/>
+        </index>
+    </element>
+</database>
